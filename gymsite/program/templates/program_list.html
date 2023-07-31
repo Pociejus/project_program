@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programs</title>
+</head>
+<body>
+    <h1>Programs</h1>
+    <ul>
+        {% for program in programs %}
+        <li><a href="{% url 'program-days' program_id=program.id %}">Program ID: {{ program.id }} - Program client: {{ program.user }}  Date created: {{ program.date_created }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

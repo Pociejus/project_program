@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Program Days for Program ID {{ program.id }} Program client: {{ program.user }}  Date created: {{ program.date_created }}</title>
+</head>
+<body>
+    <h1>Program Days for Program ID {{ program.id }} Program client: {{ program.user }}  Date created: {{ program.date_created }}</h1>
+    <h2>Program user,date: Program client: {{ program.user }}  Date created: {{ program.date_created }}</h2>
+    <ul>
+        {% for program_day in program_days %}
+        <li><a href="{% url 'generate_program_day_pdf' programday_id=program_day.id %}">Program Day: {{ program_day.day_number }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
