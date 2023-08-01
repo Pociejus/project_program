@@ -1,5 +1,5 @@
-import datetime
-from datetime import datetime, date, timezone
+
+from datetime import datetime
 from django.contrib.auth.models import User
 from django.db import models
 from PIL import Image
@@ -57,8 +57,8 @@ class Program(models.Model):
         return f'{self.user} {self.date_created}'
 
 class ProgramDay(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)    # one to many
+    program = models.ForeignKey(Program, on_delete=models.CASCADE)         # one to many
     day_number = models.DecimalField(blank=True, null=True, decimal_places=0, max_digits=1)
     exercise = models.ManyToManyField(Exercise, blank=True)
     strech = models.ManyToManyField(Strech, blank=True)

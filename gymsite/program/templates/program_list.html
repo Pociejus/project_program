@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Programs</title>
+    <title>Programos</title>
 </head>
 <body>
-    <h1>Programs</h1>
+    <h1>Visos programos</h1>
     <ul>
         {% for program in programs %}
-        <li><a href="{% url 'program-days' program_id=program.id %}">Program ID: {{ program.id }} - Program client: {{ program.user }}  Date created: {{ program.date_created }}</a></li>
+        <li><a href="{% url 'program-days' program_id=program.id %}">Program ID: {{ program.id }} - Klientas: {{ program.user }}  Data: {{ program.date_created }}</a></li>
         {% endfor %}
     </ul>
 </body>

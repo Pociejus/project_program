@@ -8,6 +8,8 @@ from reportlab.lib.utils import ImageReader
 from PIL import Image
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import cm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 
 
 
@@ -44,25 +46,31 @@ def generate_program_day_pdf(request, programday_id):
     buffer = BytesIO()
     pdf = canvas.Canvas(buffer, pagesize=letter)
 
-    # Įtraukite informaciją apie ProgramDay į PDF dokumentą
+    # Pridedame lietuvišką šriftą
+    pdfmetrics.registerFont(TTFont('Arial', r'C:\Users\pocie\pythonProjectFirst\gymsite\gymsite\static\fonts\Arial.ttf'))
+
+    # nustatome Arial srifta kaip pagrindini
+    pdf.setFont('Arial', 12)
+
+    # Antraštė
     pdf.drawString(left_margin, page_height - top_margin, f"Programos diena: {programday.day_number}")
     pdf.drawString(left_margin, page_height - top_margin - 20, f"Programa: {programday.program}")
     pdf.drawString(left_margin, page_height - top_margin - 40, "Pratimai:")
     pdf.drawString(left_margin, page_height - top_margin - 60, "--------------")
     y = page_height - top_margin - 80
 
-    # Įtraukite informaciją apie pratimus į PDF dokumentą
+    # Jėgos pratimai
     for exercise in programday.exercise.all():
         pdf.drawString(left_margin, y, f"{exercise.name}")
         pdf.drawString(left_margin, y - 20, f"Serijos: {exercise.sets}, Pakartojimai: {exercise.reps}")
         if exercise.image:
             image_path = exercise.image.path
             img = Image.open(image_path)
-            img.thumbnail((50, 50))
+            img.thumbnail((200, 200))
             pdf.drawImage(ImageReader(img), page_width - right_margin - 50, y - 30, width=50, height=50)
         y -= 50
 
-    # Įtraukite informaciją apie streches į PDF dokumentą
+    # Tempimo pratimai
     pdf.drawString(left_margin, y, "------------")
     pdf.drawString(left_margin, y - 20, "Tempimo pratimai:")
     y -= 40
@@ -73,7 +81,7 @@ def generate_program_day_pdf(request, programday_id):
         if strech.image:
             image_path = strech.image.path
             img = Image.open(image_path)
-            img.thumbnail((50, 50))
+            img.thumbnail((200, 200))
             pdf.drawImage(ImageReader(img), page_width - right_margin - 50, y - 30, width=50, height=50)
         y -= 50
 
