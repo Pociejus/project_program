@@ -1,0 +1,14 @@
+body {
+  background-color: #f5f5f5; /* Pilkas fonas */
+}
+
+/* Stilius sidebar'ui */
+.list-group-item {
+  background-color: #343a40; /* Tamsus mygtukų fonas */
+  border: none;
+  color: #ffffff; /* Teksto spalva */
+}
+
+.list-group-item:hover {
+  background-color: #495057; /* Pakeičiame fono spalvą, kai pelė užvedama ant mygtuko */
+}

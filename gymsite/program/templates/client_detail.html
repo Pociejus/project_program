@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>Kliento informacija</h1>
+    <ul>
+        <li>Vardas: {{ client.user.first_name }}</li>
+        <li>Pavardė: {{ client.user.last_name }}</li>
+        <li>Telefono numeris: {{ client.phone }}</li>
+        <li>Svoris: {{ client.weight }}</li>
+        <li>Ūgis: {{ client.height }}</li>
+        <li>Kūno masės indeksas:<strong> {{ KMI }}.</strong> {{ tekstas }}</li>
+        <li>Gimimo data: {{ client.birth }}</li>
+        <li>Amžius:<strong> {{ age }}</strong></li>
+        <li>Prisijungimo data: {{ client.joined }}</li>
+        <li>Papildoma informacija: {{ client.info }}</li>
+        <li>Pulsas apšilimo/atvėsimo metu (2 zona):<strong> nuo {{ zone2 }} iki {{ zone3 }}</strong></li>
+        <li>Pagrindinės aerobinės dalies pulsas (3 zona):<strong> nuo {{ zone3 }} iki {{ zone4 }}</strong></li>
+        <li>Intervalinėms treniruotėms (4 zona)  :<strong> nuo {{ zone4 }} iki {{ zone5 }}</strong></li>
+        <li>Sprinto pulso zona/maksimalus pulsas (5 zona)  :<strong> nuo {{ zone5 }} iki {{ max_hr }}</strong></li>
+    </ul>
+{% endblock %}

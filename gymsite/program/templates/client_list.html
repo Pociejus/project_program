@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>Visi klientai</h1>
+    <ul>
+        {% for client in clients %}
+            <li><a href="{% url 'client_detail' user_id=client.user.id %}">Vardas: {{ client.user.first_name }} - Pavardė: {{ client.user.last_name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

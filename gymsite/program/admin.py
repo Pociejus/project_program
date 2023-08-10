@@ -11,11 +11,10 @@ class StrechAdmin(admin.ModelAdmin):
 
 
 class ExerciseInline(admin.TabularInline):
-    model = ProgramDay.exercise.through  # inline forma bus susieta su vidine lentele, kuri saugo ManyToMany ryšį tarp
-    # ProgramDay ir Exercise modelių. Ši lentelė yra prieinama per through atributą,automatiškai sugeneruoto Django
+    model = ProgramDay.exercise.through  # kaip modelį nuados tarpinę lentelę many to many
 
-    fk_name = 'programday'   # foreign key vardas excercize modelyje ryšiui
-    autocomplete_fields = ('exercise',)  # leidzia pasirinkti is saraso, bet reikalauja search_fields atributo admin klasėse
+    fk_name = 'programday'   # programday naudos kaip ryšio tašką
+    autocomplete_fields = ('exercise',)  # leidzia pasirinkti is saraso, reikalauja search_fields atributo admin klasėse
 
 
 class StrechInline(admin.TabularInline):

@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Programos ID {{ program.id }} Klientas: {{ program.user }}  Data: {{ program.date_created }}</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <h1>Programos ID {{ program.id }} Klientas: {{ program.user }}. Sudarymo data: {{ program.date_created }}</h1>
     <ul>
         {% for program_day in program_days %}
         <li><a href="{% url 'generate_program_day_pdf' programday_id=program_day.id %}">Atsisiųsti PDF dieną nr {{ program_day.day_number }}</a></li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

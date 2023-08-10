@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Programos</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
     <h1>Visos programos</h1>
     <ul>
         {% for program in programs %}
         <li><a href="{% url 'program-days' program_id=program.id %}">Program ID: {{ program.id }} - Klientas: {{ program.user }}  Data: {{ program.date_created }}</a></li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

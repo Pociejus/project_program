@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.db import models
@@ -16,7 +15,7 @@ class Exercise(models.Model):
     def __str__(self):
         return f'{self.muscle_group} {self.name}'
 
-    def save(self, *args, **kwargs):     # mazinam nuotraukas jei per dideles
+    def save(self, *args, **kwargs):  # mazinam nuotraukas jei per dideles
         super().save(*args, **kwargs)
         img = Image.open(self.image.path)
         if img.height > 300 or img.width > 300:
@@ -47,7 +46,8 @@ class Strech(models.Model):
 
 class Program(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)  # Ryšys su vartotoju
-    days = models.ManyToManyField('ProgramDay', related_name='program_days', blank=True)  # Many-to-many ryšys su ProgramDay
+    days = models.ManyToManyField('ProgramDay', related_name='program_days',
+                                  blank=True)  # Many-to-many ryšys su ProgramDay
     date_created = models.DateField(null=True, blank=True, default=datetime.now)
 
     class Meta:
@@ -56,9 +56,10 @@ class Program(models.Model):
     def __str__(self):
         return f'{self.user} {self.date_created}'
 
+
 class ProgramDay(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)    # one to many
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)         # one to many
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)  # one to many
+    program = models.ForeignKey(Program, on_delete=models.CASCADE)  # one to many
     day_number = models.DecimalField(blank=True, null=True, decimal_places=0, max_digits=1)
     exercise = models.ManyToManyField(Exercise, blank=True)
     strech = models.ManyToManyField(Strech, blank=True)
@@ -68,7 +69,6 @@ class ProgramDay(models.Model):
 
     def __str__(self):
         return f'{self.user} {self.day_number}'
-
 
 
 class UserProfile(models.Model):
@@ -86,5 +86,3 @@ class UserProfile(models.Model):
     def __str__(self):
         full_name = f'{self.user.first_name} {self.user.last_name}'
         return f'{full_name} {self.phone}'
-
-
