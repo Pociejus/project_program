@@ -1,13 +1,13 @@
 # project_program
-Pirmas projektas
-Programa parašyta palengvinti ir pagreitinti darbą kuriant sporto programas. Iš esmės tai yra duomenų bazė pratimų su vizualiais pavyzdžiais kuri leidžia spausdinti sporto programos šabloną. 
-Galima pildyti duomenų bazę pratimais ar naujais klientais, taip pat kaupiant informaciją ir apie klientus. Programa padaryta naudojantis Django karkasu, dėl jo patogumo naudotis. Nebuvo intencijos kurti interntetinę svetainę, bet šis projektas gali turi galimybę augti.
-diegimas: 
-1. Kopijuokite visus failus iš repozitorijos
-2. Paleiskite komandą `pip install -r requirements.txt`, kad įdiegtumėte reikalingas bibliotekas
-3. views.py faile 48 eilutėje reikės nurodyti absolute path iki Arial.ttf failo priklausomai nuo to, kuriame aplanke įsikelsite projektą.
-Reikės susikurti savo superuser, nes programos kūrimas yra per admin panelę.
-Pirmiausiai sukuriamas klientas pridedant naują userį per admin panelę. Ja pasiekiame prie pradinio adreso pridėje /admin. Useriui automatiškai priskiriamas profilis. Užpildžius duomenis apie klientą kuriama programa jai prisikiant tik klientą bet nepriskiriant programos dienos.
-Tada kuriamos programos dienos pasirenkant jėgos pratimus bei tempimo pratimus taip pat per admin panelę. Išsaugojus duomenis galima keisti pratimų serijų bei pakartojimų skaičių.
-Naują programą galima atsispausdinti nuėjus į pradinę puslapio direktoriją. Spaudžiame programos, pasirenkame norimą ir atsispausdiname paspaudę ant kiekvienos dienos atskirai.
-Galime peržiūrėti informaciją apie klientus. Ten automatiškai suskaičiuojamas KMI ir pateikiamos rekomendacijos pagal šio indekso reikšmę bei paskaičiuojamas pulsas reikiamoms kardio treniruotėms pagal kliento amžių. 
+First Project - Program
+
+The program is designed to simplify and accelerate the process of creating sports programs. Essentially, it's a database of exercises with visual examples that allows you to print a template for a sports program. You can populate the exercise database with new exercises or clients, as well as accumulate information about clients. The program is built using the Django framework for ease of use. There was no intention to create a website, but this project has the potential to grow.
+Installation:
+
+Copy all files from the repository.
+Run the command pip install -r requirements.txt to install the necessary libraries.
+In the views.py file, on line 48, you will need to specify the absolute path to the Arial.ttf file depending on the directory where you place the project.
+You'll need to create your own superuser(or use mine : admin/ admin), as program creation happens through the admin panel. First, create a client by adding a new user through the admin panel. Access it by adding /admin to the base URL. The user is automatically assigned a profile.
+After filling in the client's information, create a program for them without assigning a program day. Then, create program days by selecting strength and stretching exercises through the admin panel.
+After saving the data, you can change the number of sets and repetitions for exercises. You can print a new program by going to the main directory and selecting the desired program. Print each day separately by clicking on each day.
+You can view information about clients. The Body Mass Index (BMI) is automatically calculated, and recommendations are provided based on the BMI value. Additionally, the appropriate heart rate for cardiovascular exercises is calculated based on the client's age.
