@@ -7,7 +7,8 @@ I used a python 3.9
 
 Installation:
 
-Clone all files from the repository with command 'git clone https://github.com/Pociejus/project_program.git' in a Terminal
+Clone all files from the repository with command 'git clone https://github.com/Pociejus/project_program.git' in a Terminal.
+
 Navigate to a project_program folder and enter a command 'pip install -r requirements.txt'
 Navigate to a gymsite folder and in terminal run a command 'python manage.py runserver'
 
