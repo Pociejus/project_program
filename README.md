@@ -7,11 +7,11 @@ I used a python 3.9
 
 Installation:
 
-Clone all files from the repository with command 'git clone https://github.com/Pociejus/project_program.git' in a Terminal.
+1. Clone all files from the repository with command 'git clone https://github.com/Pociejus/project_program.git' in a Terminal.
  
-Navigate to a project_program folder and enter a command 'pip install -r requirements.txt'.
+2. Navigate to a project_program folder and enter a command 'pip install -r requirements.txt'.
  
-Navigate to a gymsite folder and in terminal run a command 'python manage.py runserver'
+3. Navigate to a gymsite folder and in terminal run a command 'python manage.py runserver'
 
 
 You'll need to create your own superuser(or use mine : admin/ admin), as program creation happens through the admin panel. First, create a client by adding a new user through the admin panel. Access it by adding /admin to the base URL. The user is automatically assigned a profile.
